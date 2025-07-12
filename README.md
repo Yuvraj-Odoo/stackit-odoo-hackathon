@@ -27,4 +27,4 @@ Odoo module implementing a StackOverflow-style Q&A forum with:
 ## Installation
 1. Clone to Odoo addons path:
    ```bash
-   git clone https://github.com/[your-repo]/stackit_odoo_hackathon.git
+   git clone https://github.com/stackit-odoo-hackathon/stackit_odoo_hackathon.git
