@@ -23,3 +23,6 @@ Odoo module implementing a StackOverflow-style Q&A forum with:
 - **Models:** Questions, Answers, Tags, Votes
 - **Views:** OWL components + QWeb templates
 - **Dependencies:** Odoo 17, PostgreSQL
+
+## Demo video
+- https://drive.google.com/file/d/1632KRngwiiO4SAPSImIdJTgjUGpxwCOA/view?usp=sharing
