@@ -23,8 +23,3 @@ Odoo module implementing a StackOverflow-style Q&A forum with:
 - **Models:** Questions, Answers, Tags, Votes
 - **Views:** OWL components + QWeb templates
 - **Dependencies:** Odoo 17, PostgreSQL
-
-## Installation
-1. Clone to Odoo addons path:
-   ```bash
-   git clone https://github.com/Yuvraj-Odoo/stackit_odoo_hackathon.git
