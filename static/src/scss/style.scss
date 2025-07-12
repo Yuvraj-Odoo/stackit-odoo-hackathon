@@ -1,0 +1,98 @@
+.stackit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .question-card {
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            color: $primary;
+            margin-bottom: 10px;
+        }
+
+        .question-meta {
+            font-size: 0.9rem;
+            color: $text-muted;
+            margin-top: 15px;
+        }
+    }
+
+    .vote-block {
+        text-align: center;
+        min-width: 40px;
+
+        .vote-up, .vote-down {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: $gray-500;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        .vote-count {
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+        }
+    }
+
+    #notification-bell {
+        position: relative;
+        font-size: 1.5rem;
+
+        &.has-unread:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: $danger;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+    }
+
+    .stackit-rich-text {
+        .note-editor {
+            border-radius: 4px;
+            border-color: $gray-300;
+
+            .note-toolbar {
+                background-color: $gray-100;
+                border-bottom: 1px solid $gray-300;
+            }
+
+            .note-editable {
+                min-height: 200px;
+                padding: 15px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .vote-block {
+            margin-bottom: 15px;
+        }
+    }
+}

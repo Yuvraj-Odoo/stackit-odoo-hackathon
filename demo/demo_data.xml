@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Demo Users -->
+    <record id="user_john" model="res.users">
+        <field name="name">John Doe</field>
+        <field name="login">john@stackit.demo</field>
+        <field name="password">john</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <record id="user_jane" model="res.users">
+        <field name="name">Jane Smith</field>
+        <field name="login">jane@stackit.demo</field>
+        <field name="password">jane</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <record id="user_moderator" model="res.users">
+        <field name="name">Moderator</field>
+        <field name="login">mod@stackit.demo</field>
+        <field name="password">mod</field>
+        <field name="groups_id" eval="[(6, 0, [
+            ref('base.group_user'),
+            ref('stackit_odoo_hackathon.group_moderator')
+        ])]"/>
+    </record>
+
+    <!-- Demo Questions -->
+    <record id="demo_question_1" model="stackit.question">
+        <field name="name">How to create custom modules in Odoo?</field>
+        <field name="description">
+            <![CDATA[
+            <p>I'm new to Odoo development and want to create my first custom module.
+            What are the essential files needed and what should be in the __manifest__.py?</p>
+            ]]>
+        </field>
+        <field name="user_id" ref="user_john"/>
+        <field name="tag_ids" eval="[(6, 0, [
+            ref('stackit_odoo_hackathon.tag_odoo'),
+            ref('stackit_odoo_hackathon.tag_python')
+        ])]"/>
+        <field name="view_count" eval="15"/>
+    </record>
+
+    <record id="demo_question_2" model="stackit.question">
+        <field name="name">Best practices for Odoo XML views?</field>
+        <field name="description">
+            <![CDATA[
+            <p>Looking for recommendations on structuring complex XML views in Odoo.
+            How should I organize my view inheritance and when to use xpath vs position attributes?</p>
+            ]]>
+        </field>
+        <field name="user_id" ref="user_jane"/>
+        <field name="tag_ids" eval="[(6, 0, [
+            ref('stackit_odoo_hackathon.tag_odoo'),
+            ref('stackit_odoo_hackathon.tag_xml')
+        ])]"/>
+        <field name="view_count" eval="23"/>
+    </record>
+
+    <!-- Demo Answers -->
+    <record id="demo_answer_1" model="stackit.answer">
+        <field name="content">
+            <![CDATA[
+            <p>For a basic Odoo module, you'll need:</p>
+            <ol>
+                <li>__init__.py - Empty file to make it a Python package</li>
+                <li>__manifest__.py - Contains metadata like name, version, dependencies</li>
+                <li>models/ - Directory for your models</li>
+                <li>views/ - Directory for XML views</li>
+                <li>security/ - For access rights and rules</li>
+            </ol>
+            ]]>
+        </field>
+        <field name="question_id" ref="demo_question_1"/>
+        <field name="user_id" ref="user_jane"/>
+        <field name="vote_count" eval="5"/>
+    </record>
+
+    <record id="demo_answer_2" model="stackit.answer">
+        <field name="content">
+            <![CDATA[
+            <p>Key XML view best practices:</p>
+            <ul>
+                <li>Use <code>&lt;xpath&gt;</code> for precise targeting</li>
+                <li><code>position="attributes"</code> for modifying existing attributes</li>
+                <li>Group related view extensions together</li>
+                <li>Avoid deep nesting for better maintainability</li>
+            </ul>
+            ]]>
+        </field>
+        <field name="question_id" ref="demo_question_2"/>
+        <field name="user_id" ref="user_moderator"/>
+        <field name="vote_count" eval="8"/>
+        <field name="is_accepted" eval="True"/>
+    </record>
+
+    <!-- Demo Votes -->
+    <record id="demo_vote_1" model="stackit.vote">
+        <field name="vote_type">upvote</field>
+        <field name="answer_id" ref="demo_answer_1"/>
+        <field name="user_id" ref="user_moderator"/>
+    </record>
+
+    <record id="demo_vote_2" model="stackit.vote">
+        <field name="vote_type">upvote</field>
+        <field name="answer_id" ref="demo_answer_2"/>
+        <field name="user_id" ref="user_john"/>
+    </record>
+
+    <record id="demo_vote_3" model="stackit.vote">
+        <field name="vote_type">downvote</field>
+        <field name="question_id" ref="demo_question_1"/>
+        <field name="user_id" ref="user_jane"/>
+    </record>
+
+    <!-- Demo Notifications -->
+    <record id="demo_notification_1" model="stackit.notification">
+        <field name="user_id" ref="user_john"/>
+        <field name="message">Jane Smith answered your question</field>
+        <field name="notification_type">answer</field>
+        <field name="related_question_id" ref="demo_question_1"/>
+        <field name="related_answer_id" ref="demo_answer_1"/>
+    </record>
+
+    <record id="demo_notification_2" model="stackit.notification">
+        <field name="user_id" ref="user_jane"/>
+        <field name="message">Moderator accepted your answer</field>
+        <field name="notification_type">system</field>
+        <field name="related_question_id" ref="demo_question_2"/>
+        <field name="related_answer_id" ref="demo_answer_2"/>
+    </record>
+</odoo>

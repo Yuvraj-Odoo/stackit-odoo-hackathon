@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stackit_question_user,stackit.question.user,model_stackit_question,base.group_user,1,1,1,0
+access_stackit_question_public,stackit.question.public,model_stackit_question,base.group_public,1,0,0,0
+access_stackit_question_moderator,stackit.question.moderator,model_stackit_question,stackit_odoo_hackathon.group_moderator,1,1,1,1
+access_stackit_answer_user,stackit.answer.user,model_stackit_answer,base.group_user,1,1,1,0
+access_stackit_answer_public,stackit.answer.public,model_stackit_answer,base.group_public,1,0,0,0
+access_stackit_answer_moderator,stackit.answer.moderator,model_stackit_answer,stackit_odoo_hackathon.group_moderator,1,1,1,1
+access_stackit_tag_user,stackit.tag.user,model_stackit_tag,base.group_user,1,0,1,0
+access_stackit_tag_moderator,stackit.tag.moderator,model_stackit_tag,stackit_odoo_hackathon.group_moderator,1,1,1,1
+access_stackit_vote_user,stackit.vote.user,model_stackit_vote,base.group_user,1,0,1,0
+access_stackit_notification_user,stackit.notification.user,model_stackit_notification,base.group_user,1,1,0,1

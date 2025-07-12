@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Define Moderator Group -->
+    <record id="group_moderator" model="res.groups">
+        <field name="name">StackIt Moderator</field>
+        <field name="category_id" ref="base.module_category_website"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Record Rules -->
+    <record id="question_user_rule" model="ir.rule">
+        <field name="name">User can only modify own questions</field>
+        <field name="model_id" ref="model_stackit_question"/>
+        <field name="domain_force">['|', ('user_id','=',user.id), ('closed','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="question_moderator_rule" model="ir.rule">
+        <field name="name">Moderator full access</field>
+        <field name="model_id" ref="model_stackit_question"/>
+        <field name="groups" eval="[(4, ref('stackit_odoo_hackathon.group_moderator'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="answer_user_rule" model="ir.rule">
+        <field name="name">User can only modify own answers</field>
+        <field name="model_id" ref="model_stackit_answer"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="tag_moderator_rule" model="ir.rule">
+        <field name="name">Only moderators can manage tags</field>
+        <field name="model_id" ref="model_stackit_tag"/>
+        <field name="groups" eval="[(4, ref('stackit_odoo_hackathon.group_moderator'))]"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="vote_user_rule" model="ir.rule">
+        <field name="name">User can only manage own votes</field>
+        <field name="model_id" ref="model_stackit_vote"/>
+        <field name="domain_force">[('user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Controller Access Rules -->
+    <record id="website_question" model="ir.http.access">
+        <field name="name">question.controller.access</field>
+        <field name="model_id" ref="model_stackit_question"/>
+        <field name="group_ids" eval="[(6, 0, [ref('base.group_public')])]"/>
+        <field name="perm_read" eval="True"/>
+    </record>
+</odoo>

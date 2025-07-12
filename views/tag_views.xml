@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tag_tree" model="ir.ui.view">
+        <field name="name">tag.tree</field>
+        <field name="model">stackit.tag</field>
+        <field name="arch" type="xml">
+            <tree colors="gray:moderator_only==True">
+                <field name="name"/>
+                <field name="question_count"/>
+                <field name="moderator_only"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tag_form" model="ir.ui.view">
+        <field name="name">tag.form</field>
+        <field name="model">stackit.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="color"/>
+                        <field name="moderator_only"/>
+                    </group>
+                    <notebook>
+                        <page string="Questions">
+                            <field name="question_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="vote_count"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Default Tags -->
+    <record id="tag_odoo" model="stackit.tag">
+        <field name="name">Odoo</field>
+        <field name="description">Questions about Odoo framework and modules</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="tag_python" model="stackit.tag">
+        <field name="name">Python</field>
+        <field name="description">Python programming questions</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="tag_javascript" model="stackit.tag">
+        <field name="name">JavaScript</field>
+        <field name="description">JS and frontend development</field>
+        <field name="color">3</field>
+    </record>
+
+    <record id="tag_xml" model="stackit.tag">
+        <field name="name">XML</field>
+        <field name="description">Odoo views and templates</field>
+        <field name="color">4</field>
+    </record>
+
+    <record id="tag_postgresql" model="stackit.tag">
+        <field name="name">PostgreSQL</field>
+        <field name="description">Database-related questions</field>
+        <field name="color">5</field>
+    </record>
+
+    <record id="tag_installation" model="stackit.tag">
+        <field name="name">Installation</field>
+        <field name="description">Setup and deployment issues</field>
+        <field name="color">6</field>
+    </record>
+
+    <record id="tag_security" model="stackit.tag">
+        <field name="name">Security</field>
+        <field name="description">Authentication and permissions</field>
+        <field name="color">7</field>
+    </record>
+
+    <record id="tag_reporting" model="stackit.tag">
+        <field name="name">Reporting</field>
+        <field name="description">QWeb reports and analytics</field>
+        <field name="color">8</field>
+    </record>
+
+    <record id="tag_workflow" model="stackit.tag">
+        <field name="name">Workflow</field>
+        <field name="description">Business process automation</field>
+        <field name="color">9</field>
+    </record>
+
+    <record id="tag_moderator_only" model="stackit.tag">
+        <field name="name">Moderator</field>
+        <field name="description">Special moderator-only tag</field>
+        <field name="color">10</field>
+        <field name="moderator_only">True</field>
+    </record>
+
+    <!-- Assign colors to existing questions (optional) -->
+    <function model="stackit.tag" name="_sync_tag_colors"/>
+</odoo>

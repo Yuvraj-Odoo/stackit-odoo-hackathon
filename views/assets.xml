@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/stackit_odoo_hackathon/static/src/scss/style.scss"/>
+            <script type="text/javascript" src="/stackit_odoo_hackathon/static/src/js/voting.js"></script>
+            <script type="text/javascript" src="/stackit_odoo_hackathon/static/src/js/notifications.js"></script>
+        </xpath>
+    </template>
+
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/stackit_odoo_hackathon/static/src/scss/backend.scss"/>
+        </xpath>
+    </template>
+</odoo>
